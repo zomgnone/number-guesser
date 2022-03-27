@@ -13,6 +13,10 @@ const getAbsoluteDistance = (num1, num2) => Math.abs(num1 - num2);
 // This function will be called each round to determine 
 // which guess is closest to the target number.
 const compareGuesses = (humanGuess, computerGuess, targetNumber) => {
+  // Check if humanGuess is a valid number
+  if (humanGuess < 0 || humanGuess > 10) {
+    alert('You should use numbers between 0 and 10. Computer wins automatically.');
+  }
   const humanDistance = getAbsoluteDistance(humanGuess, targetNumber);
   const computerDistance = getAbsoluteDistance(computerGuess, targetNumber);
   // Return true if human wins; return false if computer wins.
