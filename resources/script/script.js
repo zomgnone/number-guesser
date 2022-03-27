@@ -7,12 +7,14 @@ let currentRoundNumber = 1;
 // in order to generate the new secret target number.
 const generateTarget = () => Math.floor(Math.random() * 10);
 
+// This function will calculate absolute distance between two numbers.
+const getAbsoluteDistance = (num1, num2) => Math.abs(num1 - num2);
+
 // This function will be called each round to determine 
 // which guess is closest to the target number.
-
 const compareGuesses = (humanGuess, computerGuess, targetNumber) => {
-  const humanDistance = Math.abs(humanGuess - targetNumber);
-  const computerDistance = Math.abs(computerGuess - targetNumber);
+  const humanDistance = getAbsoluteDistance(humanGuess, targetNumber);
+  const computerDistance = getAbsoluteDistance(computerGuess, targetNumber);
   // Return true if human wins; return false if computer wins.
   return humanDistance < computerDistance ? true : false;
 }
